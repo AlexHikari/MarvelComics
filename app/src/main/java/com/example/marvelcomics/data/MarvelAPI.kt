@@ -1,6 +1,5 @@
-package com.example.marvelcomics.api.service
+package com.example.marvelcomics.data
 
-import com.example.marvelcomics.api.models.ComicResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -17,7 +17,7 @@
             android:name="com.marvel.API_KEY"
             android:value="{$API_KEY}"/>
 
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

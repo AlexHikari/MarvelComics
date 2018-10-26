@@ -1,4 +1,4 @@
-package com.example.marvelcomics.api.models
+package com.example.marvelcomics.data
 
 
 class ComicResponse(val data: MarvelDataResponse)

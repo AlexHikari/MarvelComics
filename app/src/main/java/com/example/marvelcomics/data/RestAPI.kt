@@ -1,7 +1,6 @@
-package com.example.marvelcomics.api.service
+package com.example.marvelcomics.data
 
 import com.example.marvelcomics.BuildConfig
-import com.example.marvelcomics.api.models.ComicResponse
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -25,6 +24,6 @@ class RestAPI {
      * @return Call<ComicResponse>
      */
     fun getCharacter(name: String): Call<ComicResponse>{
-        return marvelAPI.getCharacter(name,BuildConfig.marvelPublicApiKey)
+        return marvelAPI.getCharacter(name, BuildConfig.marvelPublicApiKey)
     }
 }
