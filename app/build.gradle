@@ -4,6 +4,12 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+
+def API_KEY = '"' + marvelPublicApiKey + '"' ?: '"Define the marvel api key"'
+
+
+
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -13,12 +19,18 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        each { type ->
+            type.buildConfigField "String", 'marvelPublicApiKey', API_KEY
+        }
+        manifestPlaceholders = [
+                API_KEY: API_KEY
+        ]
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField 'String', "ApiKey", marvelPublicApiKey
         }
     }
 }
@@ -32,5 +44,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.4.0'
 
 }
