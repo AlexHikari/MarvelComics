@@ -1,6 +1,7 @@
-package com.example.marvelcomics.data
+package com.example.marvelcomics.framework
 
-import retrofit2.Call
+import com.example.marvelcomics.domain.Character
+import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -11,6 +12,6 @@ interface MarvelAPI{
      * @param apiKey String public api key to perform the call
      * @return Call<ComicResponse>
      */
-    @GET("/characters")
-    fun getCharacter(@Query("name") name: String, @Query("apikey") apiKey: String): Call<ComicResponse>
+    @GET("/characters?")
+    fun getCharacter(@Query("name") name: String, @Query("apikey") apiKey: String): Observable<Character>
 }
