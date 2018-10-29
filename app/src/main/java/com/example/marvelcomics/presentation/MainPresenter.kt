@@ -9,18 +9,18 @@ class MainPresenter(
     private var view: View?,
     private val getCharacter: GetCharacter,
     private val getComics: GetComics
-    ){
+) {
 
 
-    fun foo () {
+    /*fun foo () {
         view.renderCharacter()
     }
 
     fun onButtonClicked() {
         view.renderCharacter()
-    }
+    }*/
 
-    interface View{
+    interface View {
         fun renderCharacter(character: Character)
         fun renderComics(comics: List<Comic>)
     }
