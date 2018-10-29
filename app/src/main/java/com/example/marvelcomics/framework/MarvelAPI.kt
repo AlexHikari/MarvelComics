@@ -1,7 +1,7 @@
 package com.example.marvelcomics.framework
 
 import com.example.marvelcomics.domain.Character
-import io.reactivex.Observable
+import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -13,5 +13,5 @@ interface MarvelAPI{
      * @return Call<ComicResponse>
      */
     @GET("/characters?")
-    fun getCharacter(@Query("name") name: String, @Query("apikey") apiKey: String): Observable<Character>
+    fun getCharacter(@Query("name") name: String, @Query("apikey") apiKey: String): Single<Character>
 }

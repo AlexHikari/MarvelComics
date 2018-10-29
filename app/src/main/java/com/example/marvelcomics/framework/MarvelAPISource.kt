@@ -1,10 +1,10 @@
 package com.example.marvelcomics.framework
 
+import com.example.marvelcomics.BuildConfig
 import com.example.marvelcomics.data.ComicSource
 import com.example.marvelcomics.domain.Character
 import com.example.marvelcomics.domain.Comic
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -22,12 +22,12 @@ class MarvelAPISource : ComicSource{
         marvelAPI = retrofit.create(MarvelAPI::class.java)
     }
 
-    override fun getCharacterByName(name: String): Character {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getCharacterByName(name: String): Single<Character> {
+        return marvelAPI.getCharacter(name,BuildConfig.marvelPublicApiKey)
     }
 
-    override fun getComicByCharacterId(characterId: Int): List<Comic> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getComicByCharacterId(characterId: Int): Single<List<Comic>> {
+        TODO("GET not implemented yet")
     }
 
 }
