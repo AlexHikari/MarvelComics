@@ -6,23 +6,24 @@ import com.example.marvelcomics.usecases.GetCharacter
 import com.example.marvelcomics.usecases.GetComics
 
 class MainPresenter(
-    private var view: View?,
+    private var view: View,
     private val getCharacter: GetCharacter,
     private val getComics: GetComics
 ) {
+    fun onButtonClicked(name: String) {
 
-
-    /*fun foo () {
-        view.renderCharacter()
+        getCharacter(
+            name,
+            onSuccess = { character: Character -> view.renderCharacter(character)},
+            onError = { throwable: Throwable -> view.showCharacterError()}
+            )
     }
 
-    fun onButtonClicked() {
-        view.renderCharacter()
-    }*/
 
     interface View {
         fun renderCharacter(character: Character)
         fun renderComics(comics: List<Comic>)
+        fun showCharacterError()
     }
 
 
