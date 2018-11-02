@@ -1,25 +1,30 @@
 package com.example.marvelcomics.usecases
 
+import android.annotation.SuppressLint
+import android.util.Log
 import com.example.marvelcomics.data.ComicRepository
 import com.example.marvelcomics.domain.Character
-import io.reactivex.Single
-import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableSingleObserver
+import io.reactivex.schedulers.Schedulers
 
 class GetCharacter(private val comicRepository: ComicRepository) {
 
+    @SuppressLint("CheckResult")
     operator fun invoke(name: String, onSuccess: (Character) -> Unit, onError: (Throwable) -> Unit) {
-        val characterSingle: Single<Character> = comicRepository.getCharacterByName(name)
-        val disposable: Disposable = characterSingle.subscribeWith(object : DisposableSingleObserver<Character>() {
-            override fun onSuccess(character: Character) {
-                onSuccess(character)
-            }
+        comicRepository.getCharacterByName(name)
+            .observeOn(Schedulers.newThread())
+            .subscribeOn(Schedulers.newThread())
+            .subscribeWith(object : DisposableSingleObserver<Character>() {
+                override fun onSuccess(character: Character) {
+                    onSuccess(character)
+                    val i = Log.i("resultado", character.toString())
+                }
 
-            override fun onError(e: Throwable) {
-                onError(e)
-            }
+                override fun onError(e: Throwable) {
+                    onError(e)
+                }
 
-        })
+            })
 
     }
 }

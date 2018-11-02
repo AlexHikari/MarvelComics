@@ -1,8 +1,11 @@
 package com.example.marvelcomics.presentation
 
 import android.os.Bundle
+import android.support.design.widget.TextInputEditText
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import com.example.marvelcomics.R
 import com.example.marvelcomics.data.ComicRepository
@@ -28,20 +31,22 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val searchButton: Button = findViewById(R.id.search_button)
-        val characterText: TextView = findViewById(R.id.input_character)
+        val characterText: TextInputEditText = findViewById(R.id.input_character_text)
         searchButton.setOnClickListener { presenter.onButtonClicked(characterText.text.toString()) }
     }
 
     override fun renderCharacter(character: Character) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val characterImage: ImageView = findViewById(R.id.CharacterImage)
+        val characterName: TextView = findViewById(R.id.CharacterName)
+        val characterDescription: TextView = findViewById(R.id.CharacterDescription)
     }
 
     override fun renderComics(comics: List<Comic>) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun showCharacterError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun showCharacterError(error: Throwable) {
+        Log.i("hmmm", "mal")
     }
 
 }

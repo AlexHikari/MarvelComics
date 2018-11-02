@@ -14,16 +14,16 @@ class MainPresenter(
 
         getCharacter(
             name,
-            onSuccess = { character: Character -> view.renderCharacter(character)},
-            onError = { throwable: Throwable -> view.showCharacterError()}
-            )
+            onSuccess = { character: Character -> view.renderCharacter(character) },
+            onError = { error: Throwable -> view.showCharacterError(error) }
+        )
     }
 
 
     interface View {
         fun renderCharacter(character: Character)
         fun renderComics(comics: List<Comic>)
-        fun showCharacterError()
+        fun showCharacterError(error: Throwable)
     }
 
 
