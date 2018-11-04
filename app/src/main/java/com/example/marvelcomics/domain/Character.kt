@@ -9,14 +9,7 @@ package com.example.marvelcomics.domain
  * @constructor
  */
 data class Character(
-    val id: Int,
-    val name: String,
-    val description: String,
-    val thumbnail: ImageThumbnail
+    val data: Any
 )
 
-data class ImageThumbnail(
-    val path: String,
-    val extension: String
-)
 

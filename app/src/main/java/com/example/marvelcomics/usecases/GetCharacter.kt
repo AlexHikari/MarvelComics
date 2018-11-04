@@ -17,7 +17,7 @@ class GetCharacter(private val comicRepository: ComicRepository) {
             .subscribeWith(object : DisposableSingleObserver<Character>() {
                 override fun onSuccess(character: Character) {
                     onSuccess(character)
-                    val i = Log.i("resultado", character.toString())
+                    Log.i("resultado", character.toString())
                 }
 
                 override fun onError(e: Throwable) {

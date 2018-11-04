@@ -8,13 +8,15 @@ import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.security.MessageDigest
 
-class MarvelAPISource : ComicSource{
+class MarvelAPISource : ComicSource {
     private val marvelAPI: MarvelAPI
+
 
     init {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://gateway.marvel.com:443/v1/public/")
+            .baseUrl("https://gateway.marvel.com:443")
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
@@ -22,8 +24,34 @@ class MarvelAPISource : ComicSource{
         marvelAPI = retrofit.create(MarvelAPI::class.java)
     }
 
+    private fun byteArrayToHexString(array: Array<Byte>): String {
+        var result = StringBuilder(array.size * 2)
+        for (byte in array) {
+            val toAppend: String = String.format("%2X", byte).replace(" ", "0")
+            result.append(toAppend)
+        }
+        result.setLength(result.length)
+        return result.toString()
+    }
+
+    private fun hashString(text: String): String {
+        var result: String
+        result = try {
+            var md: MessageDigest = MessageDigest.getInstance("MD5")
+            md.reset()
+            var digestedHash: Array<Byte> = md.digest(text.toByteArray()).toTypedArray()
+            byteArrayToHexString(digestedHash)
+
+        } catch (e: Exception) {
+            ""
+        }
+        return result.toLowerCase()
+    }
+
     override fun getCharacterByName(name: String): Single<Character> {
-        return marvelAPI.getCharacter(name,BuildConfig.marvelPublicApiKey)
+        var ts: String = "1"
+        var hash = hashString(ts + BuildConfig.marvelPrivateApiKey + BuildConfig.marvelPublicApiKey)
+        return marvelAPI.getCharacter(ts, name, BuildConfig.marvelPublicApiKey, hash)
     }
 
     override fun getComicByCharacterId(characterId: Int): Single<List<Comic>> {

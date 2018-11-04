@@ -5,13 +5,13 @@ import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface MarvelAPI{
+interface MarvelAPI {
     /**
      * GET
      * @param name ") name: String name of the character
      * @param apiKey String public api key to perform the call
      * @return Call<ComicResponse>
      */
-    @GET("/characters?")
-    fun getCharacter(@Query("name") name: String, @Query("apikey") apiKey: String): Single<Character>
+    @GET("/v1/public/characters")
+    fun getCharacter(@Query("ts") ts: String, @Query("name") name: String, @Query("apikey") apiKey: String, @Query("hash") hash: String): Single<Character>
 }

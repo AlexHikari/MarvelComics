@@ -5,7 +5,9 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 
-def API_KEY = '"' + marvelPublicApiKey + '"' ?: '"Define the marvel api key"'
+def API_KEY_PUBLIC = '"' + marvelPublicApiKey + '"' ?: '"Define the marvel public api key"'
+def API_KEY_PRIVATE = '"' + marvelPrivateApiKey + '"' ?: '"Define the marvel private api key"'
+
 
 
 
@@ -21,10 +23,12 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         each { type ->
-            type.buildConfigField "String", 'marvelPublicApiKey', API_KEY
+            type.buildConfigField "String", 'marvelPublicApiKey', API_KEY_PUBLIC
+            type.buildConfigField "String", 'marvelPrivateApiKey', API_KEY_PRIVATE
         }
         manifestPlaceholders = [
-                API_KEY: API_KEY
+                API_KEY_PUBLIC : API_KEY_PUBLIC,
+                API_KEY_PRIVATE: API_KEY_PRIVATE
         ]
     }
     buildTypes {
