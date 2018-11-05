@@ -1,15 +1,20 @@
 package com.example.marvelcomics.domain
 
-/**
- *
- * @property id Int
- * @property name String
- * @property description String
- * @property thumbnail ImageThumbnail
- * @constructor
- */
+
 data class Character(
-    val data: Any
+    val data: CharacterRawModel?
 )
 
+data class CharacterRawModel(
+    val offset: Int?,
+    val limit: Int?,
+    val total: Int?,
+    val count: Int?,
+    val results: List<CharacterModel>
+)
 
+data class CharacterModel(
+
+    val data: Any
+
+)

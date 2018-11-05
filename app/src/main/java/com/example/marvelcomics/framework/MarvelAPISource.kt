@@ -49,7 +49,7 @@ class MarvelAPISource : ComicSource {
     }
 
     override fun getCharacterByName(name: String): Single<Character> {
-        var ts: String = "1"
+        var ts: String = System.currentTimeMillis().toString()
         var hash = hashString(ts + BuildConfig.marvelPrivateApiKey + BuildConfig.marvelPublicApiKey)
         return marvelAPI.getCharacter(ts, name, BuildConfig.marvelPublicApiKey, hash)
     }

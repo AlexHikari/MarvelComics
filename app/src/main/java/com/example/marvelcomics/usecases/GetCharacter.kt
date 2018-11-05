@@ -1,7 +1,6 @@
 package com.example.marvelcomics.usecases
 
 import android.annotation.SuppressLint
-import android.util.Log
 import com.example.marvelcomics.data.ComicRepository
 import com.example.marvelcomics.domain.Character
 import io.reactivex.observers.DisposableSingleObserver
@@ -17,7 +16,6 @@ class GetCharacter(private val comicRepository: ComicRepository) {
             .subscribeWith(object : DisposableSingleObserver<Character>() {
                 override fun onSuccess(character: Character) {
                     onSuccess(character)
-                    Log.i("resultado", character.toString())
                 }
 
                 override fun onError(e: Throwable) {
