@@ -2,8 +2,8 @@ package com.example.marvelcomics.framework
 
 import com.example.marvelcomics.BuildConfig
 import com.example.marvelcomics.data.ComicSource
-import com.example.marvelcomics.domain.Character
 import com.example.marvelcomics.domain.Comic
+import com.example.marvelcomics.framework.models.CharacterRawModel
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -12,7 +12,6 @@ import java.security.MessageDigest
 
 class MarvelAPISource : ComicSource {
     private val marvelAPI: MarvelAPI
-
 
     init {
         val retrofit = Retrofit.Builder()
@@ -48,7 +47,7 @@ class MarvelAPISource : ComicSource {
         return result.toLowerCase()
     }
 
-    override fun getCharacterByName(name: String): Single<Character> {
+    override fun getCharacterByName(name: String): Single<CharacterRawModel> {
         var ts: String = System.currentTimeMillis().toString()
         var hash = hashString(ts + BuildConfig.marvelPrivateApiKey + BuildConfig.marvelPublicApiKey)
         return marvelAPI.getCharacter(ts, name, BuildConfig.marvelPublicApiKey, hash)

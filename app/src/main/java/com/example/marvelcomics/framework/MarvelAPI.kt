@@ -1,6 +1,6 @@
 package com.example.marvelcomics.framework
 
-import com.example.marvelcomics.domain.Character
+import com.example.marvelcomics.framework.models.CharacterRawModel
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -13,5 +13,5 @@ interface MarvelAPI {
      * @return Call<ComicResponse>
      */
     @GET("/v1/public/characters")
-    fun getCharacter(@Query("ts") ts: String, @Query("name") name: String, @Query("apikey") apiKey: String, @Query("hash") hash: String): Single<Character>
+    fun getCharacter(@Query("ts") ts: String, @Query("name") name: String, @Query("apikey") apiKey: String, @Query("hash") hash: String): Single<CharacterRawModel>
 }

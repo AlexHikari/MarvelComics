@@ -3,6 +3,8 @@ package com.example.marvelcomics.usecases
 import android.annotation.SuppressLint
 import com.example.marvelcomics.data.ComicRepository
 import com.example.marvelcomics.domain.Character
+import com.example.marvelcomics.framework.models.CharacterRawModel
+import com.example.marvelcomics.usecases.models.convertToCharacter
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
@@ -13,9 +15,9 @@ class GetCharacter(private val comicRepository: ComicRepository) {
         comicRepository.getCharacterByName(name)
             .observeOn(Schedulers.newThread())
             .subscribeOn(Schedulers.newThread())
-            .subscribeWith(object : DisposableSingleObserver<Character>() {
-                override fun onSuccess(character: Character) {
-                    onSuccess(character)
+            .subscribeWith(object : DisposableSingleObserver<CharacterRawModel>() {
+                override fun onSuccess(character: CharacterRawModel) {
+                    onSuccess(character.convertToCharacter())
                 }
 
                 override fun onError(e: Throwable) {

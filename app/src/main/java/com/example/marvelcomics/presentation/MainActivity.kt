@@ -30,15 +30,16 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val searchButton: Button = findViewById(R.id.search_button)
-        val characterText: TextInputEditText = findViewById(R.id.input_character_text)
+        val searchButton: Button = findViewById(R.id.searchButton)
+        val characterText: TextInputEditText = findViewById(R.id.textInputField)
         searchButton.setOnClickListener { presenter.onButtonClicked(characterText.text.toString()) }
     }
 
     override fun renderCharacter(character: Character) {
-        val characterImage: ImageView = findViewById(R.id.CharacterImage)
-        val characterName: TextView = findViewById(R.id.CharacterName)
-        val characterDescription: TextView = findViewById(R.id.CharacterDescription)
+        val characterImage: ImageView = findViewById(R.id.characterImage)
+        val characterName: TextView = findViewById(R.id.characterName)
+        val characterDescription: TextView = findViewById(R.id.characterDescription)
+        
     }
 
     override fun renderComics(comics: List<Comic>) {
