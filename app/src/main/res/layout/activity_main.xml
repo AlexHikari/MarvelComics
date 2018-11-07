@@ -4,9 +4,10 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/background"
         tools:context=".presentation.MainActivity" android:orientation="vertical"
-        android:gravity="top|center">
-    <RelativeLayout android:layout_width="match_parent" android:layout_height="200dp" android:layout_weight="0">
+        android:gravity="top|center" android:id="@+id/mainLayout">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="5">
 
         <android.support.design.widget.TextInputLayout
                 android:layout_width="wrap_content"
@@ -20,39 +21,51 @@
                     android:layout_margin="16dp"
                     android:textAlignment="center"
                     android:layout_height="wrap_content"
-                    android:singleLine="false" android:hint="@string/input_character" android:id="@+id/textInputField"/>
+                    android:hint="@string/input_character" android:id="@+id/textInputField" android:singleLine="true"
+                    android:inputType="text" android:textSize="20sp" android:textStyle="bold"
+                    android:textColor="@color/colorAccent"/>
         </android.support.design.widget.TextInputLayout>
         <Button
                 android:text="@string/search_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/searchButton"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="45dp" android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"/>
-    </RelativeLayout>
-    <RelativeLayout android:layout_width="match_parent" android:layout_height="200dp"
-                    android:layout_alignParentStart="true" android:layout_weight="2">
-        <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/characterImage"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp" android:layout_marginStart="16dp"
-                android:layout_marginBottom="16dp" android:layout_alignParentTop="true"
-                android:adjustViewBounds="false" android:cropToPadding="true"/>
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/characterName"
-                android:layout_alignParentStart="true" android:layout_centerVertical="true"
-                android:layout_margin="16dp"/>
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" android:id="@+id/characterDescription"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/characterName"
-                android:layout_marginTop="16dp" android:layout_marginStart="16dp" android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"/>
+                android:layout_alignParentBottom="true" android:textColor="@color/colorAccent"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:layout_below="@+id/textInput" android:layout_marginTop="10dp" android:layout_marginStart="10dp"
+                android:layout_marginEnd="25dp" android:layout_marginBottom="25dp"/>
     </RelativeLayout>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_weight="2">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="vertical">
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/characterImage"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp" android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:cropToPadding="true" android:adjustViewBounds="false" android:scaleType="fitCenter"
+                    android:contentDescription="@string/image_resource_description"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/characterName"
+                    android:textAlignment="center" android:backgroundTint="@color/colorPrimaryDark"
+                    android:layout_marginTop="16dp" android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp" android:textColor="@color/colorAccent" android:textSize="24sp"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/characterDescription"
+                    android:layout_marginTop="16dp" android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp" android:textAlignment="viewStart"
+                    android:backgroundTint="@color/colorPrimaryDark" android:textColor="@color/colorAccent"
+                    android:textSize="12sp"/>
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

@@ -9,7 +9,7 @@ fun CharacterRawModel.convertToCharacter(): Character {
             id = id,
             name = name,
             description = description,
-            imagePath = "${image.path}${image.extension}"
+            imagePath = "${image.path}.${image.extension}"
 
         )
     }

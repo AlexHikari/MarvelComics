@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.marvelcomics.R
 import com.example.marvelcomics.data.ComicRepository
@@ -14,6 +15,7 @@ import com.example.marvelcomics.domain.Comic
 import com.example.marvelcomics.framework.MarvelAPISource
 import com.example.marvelcomics.usecases.GetCharacter
 import com.example.marvelcomics.usecases.GetComics
+import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity(), MainPresenter.View {
 
@@ -30,6 +32,7 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val linearMainLayout: LinearLayout = findViewById(R.id.mainLayout)
         val searchButton: Button = findViewById(R.id.searchButton)
         val characterText: TextInputEditText = findViewById(R.id.textInputField)
         searchButton.setOnClickListener { presenter.onButtonClicked(characterText.text.toString()) }
@@ -39,7 +42,11 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
         val characterImage: ImageView = findViewById(R.id.characterImage)
         val characterName: TextView = findViewById(R.id.characterName)
         val characterDescription: TextView = findViewById(R.id.characterDescription)
-        
+
+        characterName.text = character.name
+        characterDescription.text = character.description
+        Picasso.get().load(character.imagePath).into(characterImage)
+
     }
 
     override fun renderComics(comics: List<Comic>) {
