@@ -4,6 +4,7 @@ import com.example.marvelcomics.BuildConfig
 import com.example.marvelcomics.data.ComicSource
 import com.example.marvelcomics.domain.Comic
 import com.example.marvelcomics.framework.models.CharacterRawModel
+import io.reactivex.Maybe
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -47,10 +48,19 @@ class MarvelAPISource : ComicSource {
         return result.toLowerCase()
     }
 
-    override fun getCharacterByName(name: String): Single<CharacterRawModel> {
+    override fun getCharacterByName(name: String): Maybe<CharacterRawModel> {
         var ts: String = System.currentTimeMillis().toString()
         var hash = hashString(ts + BuildConfig.marvelPrivateApiKey + BuildConfig.marvelPublicApiKey)
-        return marvelAPI.getCharacter(ts, name, BuildConfig.marvelPublicApiKey, hash)
+        return marvelAPI.getCharacter(ts, name, BuildConfig.marvelPublicApiKey, hash).flatMapMaybe { characterRawMode ->
+            Maybe.create<CharacterRawModel> {
+                if (characterRawMode.data.character.isEmpty()) {
+                    it.onComplete()
+                } else {
+                    it.onSuccess(characterRawMode)
+                }
+            }
+
+        }
     }
 
     override fun getComicByCharacterId(characterId: Int): Single<List<Comic>> {

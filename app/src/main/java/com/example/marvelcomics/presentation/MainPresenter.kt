@@ -15,7 +15,8 @@ class MainPresenter(
         getCharacter(
             name,
             onSuccess = { character: Character -> view.renderCharacter(character) },
-            onError = { error: Throwable -> view.showCharacterError(error) }
+            onError = { error: Throwable -> view.showCharacterError(error) },
+            onEmpty = { view.showCharacterNotFound() }
         )
     }
 
@@ -24,6 +25,7 @@ class MainPresenter(
         fun renderCharacter(character: Character)
         fun renderComics(comics: List<Comic>)
         fun showCharacterError(error: Throwable)
+        fun showCharacterNotFound()
     }
 
 
