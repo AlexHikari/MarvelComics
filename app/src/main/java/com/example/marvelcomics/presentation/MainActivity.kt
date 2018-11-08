@@ -37,7 +37,8 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
         characterScrollView.visibility = View.VISIBLE
         characterName.text = character.name
         characterDescription.text = character.description
-        Picasso.get().load(character.imagePath).into(characterImage)
+        Picasso.get().load(character.imagePath)
+            .into(characterImage)
 
     }
 
