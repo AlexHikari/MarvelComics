@@ -47,7 +47,7 @@
     </android.support.constraint.ConstraintLayout>
     <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp" android:layout_weight="0" android:id="@+id/characterScrollView">
+            android:layout_height="0dp" android:layout_weight="1" android:id="@+id/characterScrollView">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:orientation="vertical">
             <android.support.v7.widget.CardView android:layout_width="match_parent"
@@ -55,7 +55,8 @@
                                                 app:cardElevation="12dp" android:layout_margin="8dp"
                                                 app:cardBackgroundColor="@color/colorPrimaryDark"
                                                 app:cardPreventCornerOverlap="false" app:cardCornerRadius="10dp"
-                                                app:contentPadding="8dp" android:id="@+id/characterCardView">
+                                                app:contentPadding="8dp" android:id="@+id/characterCardView"
+                                                android:layout_weight="1">
 
                 <ImageView
                         android:layout_width="match_parent"
