@@ -51,9 +51,9 @@
             android:fillViewport="true">
         <android.support.v7.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content"
                                             app:cardBackgroundColor="@color/ColorPrimaryDarkLess"
-                                            app:cardCornerRadius="20dp" app:contentPadding="0dp"
-                                            app:cardElevation="4dp" android:id="@+id/characterCardView"
-                                            android:layout_margin="16dp">
+                                            app:contentPadding="0dp"
+                                            app:cardElevation="8dp" android:id="@+id/characterCardView"
+                                            android:layout_margin="8dp">
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"

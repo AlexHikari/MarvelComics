@@ -3,6 +3,7 @@ package com.example.marvelcomics.presentation
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.ListAdapter
 import com.example.marvelcomics.R
 import com.example.marvelcomics.data.ComicRepository
 import com.example.marvelcomics.domain.Character
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         searchButton.setOnClickListener { presenter.onButtonClicked(textInputField.text.toString()) }
-        characterScrollView.visibility = View.GONE;
+        characterScrollView.visibility = View.GONE
 
     }
 
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
         characterDescription.text = character.description
         Picasso.get().load(character.imagePath)
             .into(characterImage)
+
 
     }
 
