@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar android:layout_width="match_parent"
+                                       android:id="@+id/toolBar"
+                                       android:layout_height="0dp"
+                                       android:background="@color/colorPrimaryDark"
+                                       android:elevation="4dp"
+                                       android:theme="@style/AppTheme">
+        <android.support.constraint.ConstraintLayout
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteY="4dp"
+                tools:layout_editor_absoluteX="16dp" android:layout_width="match_parent">
+
+
+            <ImageView
+                    android:id="@+id/imageView" android:contentDescription="logo"
+                    tools:srcCompat="@drawable/marvelogo"
+                    app:srcCompat="@drawable/marvelogo" android:layout_width="72dp"
+                    android:layout_height="@android:dimen/app_icon_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            />
+            <android.support.v7.widget.SearchView android:layout_width="wrap_content"
+                                                  android:layout_height="wrap_content"
+                                                  android:theme="@style/AppTheme"
+                                                  android:layout_marginEnd="8dp"
+                                                  app:layout_constraintEnd_toEndOf="parent"
+                                                  android:id="@+id/searchView"
+            />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.Toolbar>
+</android.support.constraint.ConstraintLayout>
