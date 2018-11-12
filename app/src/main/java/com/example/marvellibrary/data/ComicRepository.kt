@@ -1,7 +1,7 @@
-package com.example.marvelcomics.data
+package com.example.marvellibrary.data
 
-import com.example.marvelcomics.domain.Comic
-import com.example.marvelcomics.framework.models.CharacterRawModel
+import com.example.marvellibrary.domain.Comic
+import com.example.marvellibrary.framework.models.CharacterRawModel
 import io.reactivex.Maybe
 import io.reactivex.Single
 

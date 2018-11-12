@@ -1,4 +1,4 @@
-package com.example.marvelcomics
+package com.example.marvellibrary
 
 import org.junit.Test
 

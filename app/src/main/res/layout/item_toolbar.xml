@@ -5,7 +5,7 @@
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent">
     <android.support.v7.widget.Toolbar android:layout_width="match_parent"
-                                       android:id="@+id/toolBar"
+                                       android:id="@+id/toolbar"
                                        android:layout_height="0dp"
                                        android:background="@color/colorPrimaryDark"
                                        android:elevation="4dp"
@@ -18,7 +18,6 @@
 
             <ImageView
                     android:id="@+id/imageView" android:contentDescription="logo"
-                    tools:srcCompat="@drawable/marvelogo"
                     app:srcCompat="@drawable/marvelogo" android:layout_width="72dp"
                     android:layout_height="@android:dimen/app_icon_size"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +30,8 @@
                                                   android:layout_marginEnd="8dp"
                                                   app:layout_constraintEnd_toEndOf="parent"
                                                   android:id="@+id/searchView"
-            />
+            >
+            </android.support.v7.widget.SearchView>
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.Toolbar>
 </android.support.constraint.ConstraintLayout>

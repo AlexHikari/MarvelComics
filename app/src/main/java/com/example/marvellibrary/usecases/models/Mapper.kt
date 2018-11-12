@@ -1,7 +1,7 @@
-package com.example.marvelcomics.usecases.models
+package com.example.marvellibrary.usecases.models
 
-import com.example.marvelcomics.domain.Character
-import com.example.marvelcomics.framework.models.CharacterRawModel
+import com.example.marvellibrary.domain.Character
+import com.example.marvellibrary.framework.models.CharacterRawModel
 
 fun CharacterRawModel.convertToCharacter(): Character {
     return with(data.character[0]) {

@@ -1,7 +1,6 @@
 <resources>
-    <string name="app_name">MarvelComics</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="input_character">Type character name</string>
-    <string name="search_button">Search</string>
-    <string name="image_resource_description">image description</string>
+    <string name="app_name">MarvelLibrary</string>
+    <string name="Vhello_blank_fragment">Hello blank fragment</string>
+    <string name="Vsearch_hint">Type something here!</string>
+    <string name="Asearch">SearchActivity</string>
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.marvelcomics">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.example.marvellibrary">
 
     <!-- Internet permission -->
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -11,11 +12,11 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
-
+            android:theme="@style/AppTheme"
+            tools:ignore="GoogleAppIndexingWarning">
         <meta-data
-            android:name="com.marvel.API_KEY"
-            android:value="{$API_KEY}"/>
+                android:name="com.marvel.API_KEY"
+                android:value="{$API_KEY}"/>
 
         <activity android:name=".presentation.MainActivity">
             <intent-filter>
@@ -23,6 +24,18 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+                android:name=".presentation.SearchActivity"
+                android:label="@string/Asearch"
+                android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data
+                    android:name="android.app.searchable"
+                    android:resource="@xml/searchable"/>
         </activity>
     </application>
 

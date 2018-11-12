@@ -1,6 +1,6 @@
-package com.example.marvelcomics.framework
+package com.example.marvellibrary.framework
 
-import com.example.marvelcomics.framework.models.CharacterRawModel
+import com.example.marvellibrary.framework.models.CharacterRawModel
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

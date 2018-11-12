@@ -1,4 +1,4 @@
-package com.example.marvelcomics.framework.models
+package com.example.marvellibrary.framework.models
 
 import com.squareup.moshi.Json
 

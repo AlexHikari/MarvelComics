@@ -1,4 +1,4 @@
-package com.example.marvelcomics.domain
+package com.example.marvellibrary.domain
 
 
 data class Character(

@@ -1,9 +1,9 @@
-package com.example.marvelcomics.presentation
+package com.example.marvellibrary.presentation
 
-import com.example.marvelcomics.domain.Character
-import com.example.marvelcomics.domain.Comic
-import com.example.marvelcomics.usecases.GetCharacter
-import com.example.marvelcomics.usecases.GetComics
+import com.example.marvellibrary.domain.Character
+import com.example.marvellibrary.domain.Comic
+import com.example.marvellibrary.usecases.GetCharacter
+import com.example.marvellibrary.usecases.GetComics
 
 class MainPresenter(
     private var view: View,

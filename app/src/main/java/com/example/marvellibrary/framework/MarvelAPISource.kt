@@ -1,9 +1,9 @@
-package com.example.marvelcomics.framework
+package com.example.marvellibrary.framework
 
-import com.example.marvelcomics.BuildConfig
-import com.example.marvelcomics.data.ComicSource
-import com.example.marvelcomics.domain.Comic
-import com.example.marvelcomics.framework.models.CharacterRawModel
+import com.example.marvellibrary.BuildConfig
+import com.example.marvellibrary.data.ComicSource
+import com.example.marvellibrary.domain.Comic
+import com.example.marvellibrary.framework.models.CharacterRawModel
 import io.reactivex.Maybe
 import io.reactivex.Single
 import retrofit2.Retrofit

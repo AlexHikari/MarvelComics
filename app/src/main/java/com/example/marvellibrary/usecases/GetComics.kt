@@ -1,6 +1,6 @@
-package com.example.marvelcomics.usecases
+package com.example.marvellibrary.usecases
 
-import com.example.marvelcomics.data.ComicRepository
+import com.example.marvellibrary.data.ComicRepository
 
 class GetComics(private val comicRepository: ComicRepository) {
 

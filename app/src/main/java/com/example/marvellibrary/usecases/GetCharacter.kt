@@ -1,10 +1,10 @@
-package com.example.marvelcomics.usecases
+package com.example.marvellibrary.usecases
 
 import android.annotation.SuppressLint
-import com.example.marvelcomics.data.ComicRepository
-import com.example.marvelcomics.domain.Character
-import com.example.marvelcomics.framework.models.CharacterRawModel
-import com.example.marvelcomics.usecases.models.convertToCharacter
+import com.example.marvellibrary.data.ComicRepository
+import com.example.marvellibrary.domain.Character
+import com.example.marvellibrary.framework.models.CharacterRawModel
+import com.example.marvellibrary.usecases.models.convertToCharacter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableMaybeObserver
 import io.reactivex.schedulers.Schedulers
